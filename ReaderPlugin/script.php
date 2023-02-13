@@ -27,3 +27,4 @@ function manga_reader_shortcode( $atts ) {
 }
 add_shortcode( 'manga', 'manga_reader_shortcode' );
 
+
