@@ -4,8 +4,8 @@ a wip manga reader using wordpress
 preview: http://hasky.rf.gd/reader/
 
 
-Note: To use the reader script add the following shortcode to your posts(with spaces between each image link)):
+Note: To use the reader script add the following shortcode to your posts(seperated with comma):
 
-[manga]http://example.com/manga-page-1.jpg http://example.com/manga-page-2.jpg http://example.com/manga-page-3.jpg[/manga]
+[manga images="image1.jpg,image2.jpg,image3.jpg"]
 
 Example of plugin in use: http://hasky.rf.gd/reader/nagatoro-121test-chapter/
