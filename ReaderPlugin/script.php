@@ -7,24 +7,23 @@ Author: Ha Sky
 */
 
 function manga_reader_scripts() {
-    wp_enqueue_script( 'manga-reader', plugin_dir_url( __FILE__ ) . 'manga-reader.js', array(), '1.0', true );
+  wp_enqueue_script( 'manga-reader-script', plugins_url( 'manga-reader.js', __FILE__ ), array(), '1.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'manga_reader_scripts' );
 
-function manga_reader_shortcode( $atts, $content = null ) {
-    $output = '<div class="manga-reader">';
+function manga_reader_shortcode( $atts ) {
+  extract( shortcode_atts( array(
+    'images' => ''
+  ), $atts ) );
 
-    // Split the content into an array of image links
-    $images = explode( ' ', $content );
+  $images = explode( ',', $images );
+  $output = '<div class="manga-reader">';
+  foreach ( $images as $image ) {
+    $output .= '<img src="' . $image . '" class="manga-page" />';
+  }
+  $output .= '</div>';
 
-    // Loop through the image links and add them to the output
-    foreach ( $images as $image ) {
-        $output .= '<img src="' . $image . '" class="manga-page" />';
-    }
-
-    $output .= '</div>';
-
-    return $output;
+  return $output;
 }
 add_shortcode( 'manga', 'manga_reader_shortcode' );
 
